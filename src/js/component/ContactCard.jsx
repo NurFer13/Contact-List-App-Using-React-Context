@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modal from "./Modal.jsx";
 
-
- export const ContactCard = () => {
+ export const ContactCard = (props) => {
     return (
         <div>
             <div className="container-fluid ms-2">
@@ -31,13 +31,16 @@ import { Link } from "react-router-dom";
                                                 className="btn btn-lg text-success m-2"
                                                 button="button"
                                             >
+                                                <link to={"/update/" + props.id}>
                                                 <i className="far fa-edit"></i>
+                                                </link>
                                             </button>
                                             <button
                                                 className="btn btn-lg m-2 text-danger"
                                                 type="button"
                                             >
-                                                <i class="fas fa-trash-alt"></i>
+                                                <i class="fas fa-trash-alt"data-bs-toggle="modal" data-bs-target={`#modal-${props.id}`}></i>
+                                                <Modal id={props.id} />
                                             </button>
 
                                         </div>
