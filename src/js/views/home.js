@@ -1,11 +1,14 @@
 import React from "react";
-import { ContactCard } from "../component/ContactCard.jsx";
-import "../../styles/home.css";
+import Contact from "../component/Contacto.jsx";
+import Button from "../component/Button.jsx";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1 className="text-white">Contact List App Using React & Context
-</h1>
-		<ContactCard/>
-	</div>
-);
+const Home = () => {
+    return(
+        <div className="container mt-3">
+            <Button />
+            <Contact />
+        </div>
+    );
+};
+
+export default Home;

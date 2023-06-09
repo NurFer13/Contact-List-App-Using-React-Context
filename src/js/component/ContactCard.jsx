@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState,useEffect,useContext} from "react";
 import { Link } from "react-router-dom";
-import Modal from "./Modal.jsx";
+
 
  export const ContactCard = (props) => {
+
     return (
         <div>
             <div className="container-fluid ms-2">
@@ -21,10 +22,10 @@ import Modal from "./Modal.jsx";
                                             <img className="img-thumbnail" src="https://tse2.mm.bing.net/th?id=OIP.ncOCV5LVCL8j70Edjgyn6QHaGy&pid=Api" />
                                         </div>
                                         <div className="col-8">
-                                            <h3 className="mb-3">Full name</h3>
-                                            <p className="text-white"><i class="fas fa-map-marker-alt text-secondary"></i><span className="text-dark ms-3">c/Monte 43</span></p>
-                                            <p className="text-white"><i class="fas fa-at text-secondary"></i><span className="text-dark ms-3">pineapple@gmail.com</span></p>
-                                            <p className="text-white"><i class="fas fa-phone text-secondary"></i><span className="text-dark ms-3">666565435</span></p>
+                                            <h3 className="mb-3">{props.item.full_name}</h3>
+                                            <p className="text-white"><i className="fas fa-map-marker-alt text-secondary"></i><span className="text-dark ms-3">{props.item.address}</span></p>
+                                            <p className="text-white"><i className="fas fa-at text-secondary"></i><span className="text-dark ms-3"> {props.item.email}</span></p>
+                                            <p className="text-white"><i className="fas fa-phone text-secondary"></i><span className="text-dark ms-3">{props.item.phone}</span></p>
                                         </div>
                                         <div className="col-2 d-flex align-items-center justify-content-end">
                                             <button
@@ -35,13 +36,7 @@ import Modal from "./Modal.jsx";
                                                 <i className="far fa-edit"></i>
                                                 </link>
                                             </button>
-                                            <button
-                                                className="btn btn-lg m-2 text-danger"
-                                                type="button"
-                                            >
-                                                <i class="fas fa-trash-alt"data-bs-toggle="modal" data-bs-target={`#modal-${props.id}`}></i>
-                                                <Modal id={props.id} />
-                                            </button>
+                                           
 
                                         </div>
                                     </div>

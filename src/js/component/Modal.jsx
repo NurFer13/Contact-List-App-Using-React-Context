@@ -1,5 +1,3 @@
-//Ask the user for confirmation before deleting
-
 import React from "react";
 import useAppContext from "../store/AppContext.js";
 
@@ -16,11 +14,11 @@ const Modal = (props) => {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <p>All data will be lost.</p>
+            <p>Data will be lost</p>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">
-            Return to configuration
+              Return to settings
             </button>
             <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={() => actions.handleClickDeleteContact(props.id)}>
               Delete
