@@ -1,15 +1,17 @@
 import React from "react";
-import useAppContext from "../store/AppContext.js";
+import useAppContext from "../store/appContext.js";
 
-const createContactBook = () => {
-
-  const {store, actions} = useAppContext();
+const CreateContactBook = () => {
+  const { store, actions } = useAppContext();
 
   return (
     <form>
       <div className="mt-5">
-        <label htmlFor="contactBookName" className="form-label d-flex justify-content-center">
-         Contact Book
+        <label
+          htmlFor="contactBookName"
+          className="form-label d-flex justify-content-center"
+        >
+          Contact Book
         </label>
         <input
           type="text"
@@ -20,11 +22,17 @@ const createContactBook = () => {
           onChange={(e) => actions.setContactBookName(e.target.value)}
         />
       </div>
-      <button type="submit" className="btn btn-primary d-flex mx-auto mt-3" onClick={(e) => actions.handlecreateContactBook(e,store.contactBookName)}>
+      <button
+        type="submit"
+        className="btn btn-primary d-flex mx-auto mt-3"
+        onClick={(e) =>
+          actions.handlecreateContactBook(e, store.contactBookName)
+        }
+      >
         Create Contact Book
       </button>
     </form>
   );
 };
 
-export default createContactBook;
+export default CreateContactBook;

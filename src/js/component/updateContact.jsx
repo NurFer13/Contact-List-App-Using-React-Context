@@ -1,29 +1,25 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAllContactBook } from "../store/services.js";
-import useAppContext from "../store/AppContext.js";
-import ModalUpdate from "./ModalUpdate.jsx";
 import { getAllContactBook } from "../store/actions.js";
+import useAppContext from "../store/appContext.js";
+import ModalUpdate from "./modalUpdate.jsx";
 
 const updateContact = () => {
-  
-  const {store, actions} = useAppContext();
+  const { store, actions } = useAppContext();
 
   const navigate = useNavigate();
-  
+
   const params = useParams();
 
   useEffect(() => {
-    getAllContactBook(params.theid)
-      .then(data => {
-        actions.setName(data.full_name)
-        actions.setEmail(data.email)
-        actions.setPhone(data.phone)
-        actions.setAddress(data.address)
-      })
-    },[]) 
-  
+    getAllContactBook(params.theid).then((data) => {
+      actions.setName(data.full_name);
+      actions.setEmail(data.email);
+      actions.setPhone(data.phone);
+      actions.setAddress(data.address);
+    });
+  }, []);
 
   return (
     <form>
@@ -81,11 +77,30 @@ const updateContact = () => {
         />
       </div>
       <div className="d-grid">
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#updateModal-${params.theid}`}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target={`#updateModal-${params.theid}`}
+        >
           Save contact
         </button>
-        <ModalUpdate objContact={{name: store.fullName, email: store.email, phone: store.phone, address: store.address}} id={params.theid} />
-        <button className="col-2 btn btn-danger mt-3" onClick={(e) => {actions.handleHomeAndReset(e); navigate("/");}}>
+        <ModalUpdate
+          objContact={{
+            name: store.fullName,
+            email: store.email,
+            phone: store.phone,
+            address: store.address,
+          }}
+          id={params.theid}
+        />
+        <button
+          className="col-2 btn btn-danger mt-3"
+          onClick={(e) => {
+            actions.handleHomeAndReset(e);
+            navigate("/");
+          }}
+        >
           Return to contacts
         </button>
       </div>

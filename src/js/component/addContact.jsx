@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import useAppContext from "../store/AppContext.js";
+import useAppContext from "../store/appContext.js";
 
 const AddContact = () => {
-
   const navigate = useNavigate();
 
-  const {store, actions} = useAppContext();
+  const { store, actions } = useAppContext();
 
   return (
     <form>
@@ -64,10 +63,29 @@ const AddContact = () => {
         />
       </div>
       <div className="d-grid">
-        <button type="submit" className="btn btn-primary" onClick={(e) => {actions.handleClickSave(e, store.fullName, store.email, store.phone, store.address); navigate("/");}}>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={(e) => {
+            actions.handleClickSave(
+              e,
+              store.fullName,
+              store.email,
+              store.phone,
+              store.address
+            );
+            navigate("/");
+          }}
+        >
           Save contact
         </button>
-        <button className="col-2 btn btn-danger mt-3" onClick={(e) => {actions.handleHomeAndReset(e); navigate("/");}}>
+        <button
+          className="col-2 btn btn-danger mt-3"
+          onClick={(e) => {
+            actions.handleHomeAndReset(e);
+            navigate("/");
+          }}
+        >
           Return to contact list
         </button>
       </div>
